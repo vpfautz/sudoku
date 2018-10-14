@@ -137,6 +137,30 @@ def example_sudoku():
 
 	print_sol(cnf)
 
+def hardest_sudoku():
+	d = """
++---+---+---+
+|8  |   |   |
+|  3|6  |   |
+| 7 | 9 |2  |
++---+---+---+
+| 5 |  7|   |
+|   | 45|7  |
+|   |1  | 3 |
++---+---+---+
+|  1|   | 68|
+|  8|5  | 1 |
+| 9 |   |4  |
++---+---+---+
+"""
+
+	cnf = []
+
+	gen_sudoku_basis(cnf)
+	gen_from_preset(cnf, d)
+
+	print_sol(cnf)
+
 # generate rules from areas
 def gen_from_areas(cnf, d, sums):
 	sums = sums.split(" ")
@@ -192,6 +216,9 @@ def example_killer_sudoku():
 if __name__ == '__main__':
 	print "Sudoku example:"
 	example_sudoku()
+
+	print "hardest Sudoku:"
+	hardest_sudoku()
 
 	print "killer sudoku example:"
 	example_killer_sudoku()
